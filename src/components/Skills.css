@@ -1,0 +1,156 @@
+.skills-section {
+  background: #2f2f2f;
+  padding: 150px 60px 80px; /* <-- top padding = navbar height + extra spacing */
+  color: white;
+  text-align: center;
+}
+
+
+.skills-title {
+  font-size: 32px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.skills-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #22c55e;
+  display: block;
+  margin: 10px auto 0;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.skill-card {
+  background: #3a3a3a;
+  padding: 30px;
+  border-radius: 20px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.skill-card img {
+  width: 70px;
+  margin-bottom: 15px;
+}
+
+.skill-card h3 {
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+/* CLICK / HOVER ANIMATION */
+.skill-card:hover {
+  transform: scale(1.1) rotate(3deg);
+  background: #4f46e5;
+}
+.slide-in {
+  animation: slideFromLeft 0.8s ease forwards;
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.skill-card {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* LEFT */
+.skill-card:nth-child(1) {
+  animation-name: fromLeft;
+}
+
+/* RIGHT */
+.skill-card:nth-child(2) {
+  animation-name: fromRight;
+}
+
+/* BOTTOM */
+.skill-card:nth-child(3) {
+  animation-name: fromBottom;
+}
+
+/* TOP */
+.skill-card:nth-child(4) {
+  animation-name: fromTop;
+}
+
+/* Repeat pattern */
+.skill-card:nth-child(5) {
+  animation-name: fromLeft;
+}
+.skill-card:nth-child(6) {
+  animation-name: fromRight;
+}
+
+/* DELAY */
+.skill-card:nth-child(1) { animation-delay: 0.1s; }
+.skill-card:nth-child(2) { animation-delay: 0.2s; }
+.skill-card:nth-child(3) { animation-delay: 0.3s; }
+.skill-card:nth-child(4) { animation-delay: 0.4s; }
+.skill-card:nth-child(5) { animation-delay: 0.5s; }
+.skill-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* KEYFRAMES */
+
+@keyframes fromLeft {
+  from {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fromRight {
+  from {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fromTop {
+  from {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fromBottom {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

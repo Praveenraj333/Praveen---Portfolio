@@ -1,0 +1,180 @@
+.certificate-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 20px 50px; /* <-- change here, top = navbar height + extra */
+  background: #f5f5f5;      /* stable background */
+  text-align: center;
+}
+
+
+.certificate-container h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.certificate-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center; /* center each box */
+}
+
+/* CERTIFICATE BOX */
+.certificate-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: floatIn 0.8s ease forwards;
+}
+
+/* DIFFERENT ANGLE FOR EACH BOX */
+.certificate-box:nth-child(odd) {
+  transform: rotate(-3deg);
+}
+
+.certificate-box:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* HOVER EFFECT */
+.certificate-box:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+}
+
+/* IMAGE */
+.certificate-box img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.certificate-box h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.certificate-box p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.certificate-box button {
+  padding: 8px 15px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.certificate-box button:hover {
+  background: #3730a3;
+}
+
+/* FLOAT IN ANIMATION */
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--rotate, 0deg));
+  }
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .certificate-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .certificate-grid {
+    grid-template-columns: 1fr; /* vertical layout */
+  }
+
+  .certificate-box img {
+    height: 200px;
+  }
+}
+/* Animate modal popup */
+.animate-modal {
+  animation: zoomIn 0.5s ease forwards;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.certificate-box {
+  background: #f0f0f0; /* normal background */
+  border: 2px solid transparent;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease; /* smooth transition */
+}
+
+.certificate-box:hover {
+  background: #dba1d7;   /* hover background color */
+  color: white;           /* text color change */
+  transform: translateY(-5px); /* small lift animation */
+  border: 2px solid #0a0a0a;   /* optional border highlight */
+}
+
+.certificate-box:hover img {
+  transform: scale(1.05);  /* image zoom effect on hover */
+  transition: transform 0.3s ease;
+}
